@@ -16,6 +16,9 @@ WARNING:
 */
 
 -- Check if the database named 'DataWarehouse' exists or not and then drop if exists
+
+use master;
+go 
 if exists (select 1 from sys.databases where name = 'DataWarehouse')
 	begin
 		drop database DataWarehouse
@@ -25,7 +28,8 @@ go
 
 -- create new database
 create database DataWarehouse;
-
+go
+use DataWarehouse;
 go
 create schema bronze;
 go 
@@ -33,3 +37,4 @@ create schema silver;
 go
 create schema gold;
 go
+
